@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#41414C" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
+    <title>JobsCalc</title>
+
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/partials/page-header.css" />
+    <link rel="stylesheet" href="/styles/partials/cards.css" />
+    <link rel="stylesheet" href="/styles/partials/buttons.css" />
+    <link rel="stylesheet" href="/styles/partials/forms.css" />
+    <link rel="stylesheet" href="/styles/partials/animations.css" />
+    <link rel="stylesheet" href="/styles/pages/profile.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+</head>
+
+<body id="page-profile">
+    <%- include('parts/page-header', { title: 'Meu Perfil'}) %>
+        <div class="container animate-up delay-2">
+            <aside class="card">
+                <img src="<%= profile.Link_Avatar %> " alt="<%= profile.Nome %> ">
+                <h2>
+                    <%= profile.Nome %>
+                </h2>
+                <p>
+                    Contato: <%= profile.Telefone  %> 
+                </p>
+                <button class="button green" form="form-profile" type="submit">Salvar dados</button>
+            </aside>
+            <main>
+                <form id="form-profile" method="POST" action="/profile" >
+                    <fieldset>
+                        <legend>Dados do perfil</legend>
+                        <div class="separator light"></div>
+
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" value=" <%= profile.Nome  %> "/>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="avatar">Link da foto</label>
+                                <input placeholder="https://" type="url" id="avatar" name="avatar" value=" <%= profile.Link_Avatar %>" />
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <label for="Telefone">Telefone</label>
+                                <input type="text" id="Telefone" name="Telefone" value=" <%= profile.Telefone  %> "/>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" value=" <%= profile.email %>" />
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <label for="Password">Senha</label>
+                                <input type="password" id="Password" name="Password" value=" <%= profile.Password %>" />
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                    
+                    <div class="separator light"> </div>
+                    
+                </form>
+            </main>
+        </div>
+        <!-- end container -->
+</body>
+
+</html>
