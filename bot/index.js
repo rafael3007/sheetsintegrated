@@ -2,7 +2,7 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const credenciais = require('./credenciais.json');
 
 const getDoc = async () => {
-    const doc = new GoogleSpreadsheet('1y4_Qeai7YVLVpI7yT4c0xbqHz_Fh1ntBFqR9HpZJG1I');
+    const doc = new GoogleSpreadsheet('SHEET-ID');
 
     await doc.useServiceAccountAuth({
         client_email: credenciais.client_email,
@@ -39,7 +39,7 @@ function start(client) {
         sheet.getRows().then(rows => {
             
             client
-                .sendText('557788682048@c.us', `variavel que vem da planilha Excell: ${rows[1].Uniorg}`)
+                .sendText('5577XXXXXXXX@c.us', `variavel que vem da planilha Excell: ${rows[1].Uniorg}`)
                 .then((result) => {
                     console.log('Result: ', result); //retorna um objeto de successo
                 })
